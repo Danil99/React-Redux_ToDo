@@ -1,0 +1,388 @@
+*
+  margin: 0
+  padding: 0
+  font-family: 'Arial', sans-serif
+  box-sizing: border-box
+
+ul li
+  list-style-type: none
+
+main
+  margin: 30px auto
+  width: 700px
+  position: relative
+
+header
+  width: 100%
+  height: 70px
+  padding: 0 20px
+  background-color: slateblue
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  align-items: center
+  border-radius: 5px 5px 0 0
+  .title
+    h1
+      font-weight: lighter
+      color: #fff
+      font-size: 23px
+
+section
+  background-color: #e1e1e1
+  border-radius: 0 0 5px 5px
+  overflow: hidden
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  position: relative
+  .name-group
+    width: 260px
+    min-height: 400px
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    flex-direction: column
+    background-color: #f1f1f1
+    -webkit-box-shadow: 4px 0px 17px -1px rgba(0,0,0,0.15)
+    -moz-box-shadow: 4px 0px 17px -1px rgba(0,0,0,0.15)
+    box-shadow: 4px 0px 17px -1px rgba(0,0,0,0.15)
+    .item
+      padding: 16px 15px
+      border-bottom: 1px solid rgba(0, 0, 0, .1)
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      align-items: center
+      user-select: none
+      cursor: pointer
+      position: relative
+      &.active::after
+        width: 100%
+      &::after
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        width: 0
+        height: 100%
+        transition: all .25s ease
+        background-color: rgba(0, 0, 0, .07)
+      &:hover::after
+        width: 100%
+      .icon
+        width: 30px
+        text-align: center
+        .fa
+          font-size: 18px
+          color: #222
+      span
+        display: inline-block
+        font-size: 18px
+        margin-left: 16px
+        color: #222
+
+section .task-list
+  position: relative
+  width: calc(100% - 260px)
+  padding: 8px
+  .task
+    background-color: #f1f1f1
+    padding: 20px
+    margin-bottom: 12px
+    border-radius: 3px
+    user-select: none
+    box-shadow: 3px 0px 10px -1px rgba(0,0,0, .25)
+    position: relative
+    &:hover .item-close, &:hover .item-edit
+      opacity: 1
+    >div
+      display: inline-block
+    .item-close, .item-edit
+      position: absolute
+      width: 20px
+      height: 20px
+      display: -webkit-flex
+      display: -ms-flex
+      display: flex
+      align-items: center
+      justify-content: center
+      right: 5px
+      top: 5px
+      opacity: 0
+      transition: all .1s ease
+      &:hover .fa
+        // font-size: 21px
+        margin-right: 5px
+      .fa
+        transition: all .15s ease
+        cursor: pointer
+        color: #333
+        font-size: 19px
+    .item-edit
+      bottom: 5px
+      top: auto
+      &:hover .fa
+        font-size: 18px
+        margin-right: 7px
+      .fa
+        font-size: 18px
+    .item
+      float: left
+      width: 20px
+      text-align: center
+      cursor: pointer
+      .fa
+        font-size: 20px
+        color: #222
+    span
+      display: inline-block
+      margin-left: 10px
+      font-size: 18px
+      color: #222
+      cursor: pointer
+      &.active
+        text-decoration: line-through
+
+.add-task
+  position: absolute
+  right: 20px
+  bottom: 20px
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  background-color: deeppink
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  align-items: center
+  justify-content: center
+  cursor: pointer
+  overflow: hidden
+  transition: all .15s ease
+  &:hover
+    bottom: 23px
+    right: 23px
+    width: 44px
+    height: 44px
+  span
+    color: #fff
+    font-size: 25px
+
+form.add-wind, form.edit-wind
+  position: absolute
+  width: 220px
+  padding: 15px
+  top: 40%
+  left: 50%
+  transform: translate(-50%, -50%)
+  background-color: #fff
+  z-index: 10
+  border-radius: 3px
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25)
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25)
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25)
+  &.hide
+    display: none
+  label
+    position: relative
+    span
+      position: absolute
+      font-size: 14px
+      left: 0
+      color: slateblue
+    input[type="text"]
+      width: 100%
+      margin-top: 20px
+      padding: 3px 5px
+      background-color: transparent
+      color: #222
+      border: 0
+      border-bottom: 2px solid slateblue
+      outline: none
+      font-size: 15px
+  .button
+    margin-top: 15px
+    float: right
+    input
+      text-transform: uppercase
+      color: #222
+      font-size: 13px
+      background-color: transparent
+      border: 0
+      font-weight: bold
+      cursor: pointer
+      outline: none
+      &:last-child
+        color: slateblue
+        margin-left: 20px
+
+  .color-circle
+    width: 100%
+    margin-top: 10px
+    display: -webkit-flex
+    display: -ms-flex
+    display: flex
+    align-items: center
+    justify-content: space-between
+    span
+      display: block
+      width: 30px
+      height: 30px
+      border-radius: 50%
+      cursor: pointer
+      &:active
+        border: 1px solid #999
+
+form.edit-wind
+  margin-left: -130px
+
+main.opacity::after
+  content: ''
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, .2)
+  border-radius: 5px
+
+section .task-list .task .item
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+  align-items: center
+  // width: 25px
+
+section .task-list .task > div
+  display: -webkit-flex
+  display: -ms-flex
+  display: flex
+
+section .task-list .task span
+  width: calc(100% - 20px)
+
+header
+  .menu
+    display: none
+    width: 27px
+    height: 3px
+    background-color: #fff
+    position: relative
+    &::after, &:before
+      content: ''
+      background-color: #fff
+      width: 27px
+      height: 3px
+      position: absolute
+      transition: all .25s ease
+      left: 0
+    &::after
+      bottom: 8px
+    &::before
+      top: 8px
+
+    &.active
+      background-color: transparent
+      &::after
+        transform: rotate(-135deg)
+        bottom: 0
+      &::before
+        top: 0
+        transform: rotate(135deg)
+
+@media only screen and (max-width : 768px)
+  form.add-wind, form.edit-wind
+    position: fixed
+    margin: 0
+    top: 50%
+  main
+    width: auto
+    margin: 30px 20px
+
+  section .name-group
+    width: 37%
+
+  section .task-list
+    width: 63%
+
+  header
+    height: 60px
+
+  section .name-group .item span
+    font-size: 17px
+    margin-left: 8px
+
+  header .title h1
+    font-size: 20px
+
+  section .task-list .task
+    padding: 17px 20px
+
+  section .name-group .item .icon .fa
+    font-size: 16px
+
+  section .task-list .task span
+    font-size: 16px
+
+  section .name-group .item
+    padding: 15px
+
+  section .name-group
+    min-height: 350px
+
+@media only screen and (max-width : 480px)
+  header
+    border-radius: 0
+    .title
+      margin-left: 15px
+    .menu
+      display: block
+
+  main
+    margin: 0
+    min-height: 100vh
+
+  section .task-list
+    width: 100%
+
+  section .name-group
+    width: 180px
+    min-height: calc(100vh - 60px)
+    position: absolute
+    top: 0
+    left: -180px
+    z-index: 5
+    transition: all .25s ease
+    box-shadow: none
+    &.active
+      left: 0
+      -webkit-box-shadow: 4px 0px 17px -1px rgba(0,0,0,0.15)
+      -moz-box-shadow: 4px 0px 17px -1px rgba(0,0,0,0.15)
+      box-shadow: 4px 0px 17px -1px rgba(0,0,0,0.15)
+
+  section .task-list .task .item-close, section .task-list .task .item-edit
+    top: 50%
+    transform: translate(0, -50%)
+
+  section .task-list .task .item-edit
+    right: 35px
+
+  section .task-list .task .item-close
+    right: 5px
+
+  section .task-list .task .item-close, section .task-list .task .item-edit
+    opacity: 1
+    height: 30px
+    width: 30px
+
+  section .task-list .task .item-close .fa, section .task-list .task .item-edit .fa
+    font-size: 21px
+
+  section
+    border-radius: 0
+    padding-bottom: 90px
+    overflow: inherit
+
+  body
+    background-color: #e1e1e1
