@@ -3,7 +3,7 @@
 ### Start App:
 ```
 #Server
-nom run server
+npm run server
 ```
 ```
 #WebPack
